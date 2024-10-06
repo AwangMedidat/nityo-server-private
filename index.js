@@ -9,8 +9,8 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:9001", // Izinkan hanya dari port 9001
-    methods: ["GET", "POST"], // Izinkan metode HTTP tertentu
+    origin: "http://localhost:9001",
+    methods: ["GET", "POST"],
   })
 );
 

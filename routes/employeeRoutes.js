@@ -3,7 +3,6 @@ const { postEmployee, getEmployees } = require('../controllers/employeeControlle
 
 const router = express.Router();
 
-router.post('/post_employee', postEmployee)
-router.get('/list_employee', getEmployees);
+router.get('/', getEmployees);
 
 module.exports = router;
