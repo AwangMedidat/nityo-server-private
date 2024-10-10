@@ -1,9 +1,8 @@
-const { db_company } = require('../config/db');
+const { db_company } = require("../config/db");
 
 const getEmployees = async (req, res) => {
-
-    try {
-        const query = `
+  try {
+    const query = `
             WITH RECURSIVE hierarchy AS (
                 SELECT 
                     employee_id, 
@@ -38,15 +37,21 @@ const getEmployees = async (req, res) => {
             ORDER BY employee_id;
         `;
 
-        const result = await db_company.query(query);
-        const data = result.rows;
+    const result = await db_company.query(query);
+    const data = result.rows;
 
-        return res.status(201).json({ success: true, message: 'Employee data successfully retrieved', data });
-    } catch (error) {
-        return res.status(500).json({ success: false, message: 'Failed to retrieve employee data', data: [] });
-    }
-
+    return res.status(201).json({
+      success: true,
+      message: "Employee data successfully retrieved",
+      data,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Failed to retrieve employee data",
+      data: [],
+    });
+  }
 };
-
 
 module.exports = { getEmployees };
